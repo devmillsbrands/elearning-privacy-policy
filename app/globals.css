@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/*
+  Design tokens. Tailwind v4 turns each of these into a matching utility
+  automatically — e.g. --color-accent gives you bg-accent / text-accent /
+  border-accent, --font-display gives you font-display, and
+  --breakpoint-nav gives you the `nav:` responsive prefix.
+
+  Change a value here and every component that uses that utility updates.
+*/
+@theme {
+  --color-bg: #f2f3f6;
+  --color-surface-alt: #e8ebf1;
+  --color-border: #d8dce4;
+
+  --color-ink: #1c2530;
+  --color-ink-soft: #556070;
+  --color-ink-faint: #8b93a0;
+
+  /* --color-accent: #2f6f62;
+  --color-accent-dark: #234f45;
+  --color-accent-soft: #dbe9e3; */
+
+  --color-accent: #2f5f9e;       /* was green #2f6f62 */
+  --color-accent-dark: #21426e;  /* was green #234f45 */
+  --color-accent-soft: #dde6f3;
+
+  --color-warn: #a9762f;
+  --color-warn-soft: #f1e4cb;
+
+  --color-danger: #a6483c;
+  --color-danger-soft: #f3e0dc;
+
+  --color-border: #dadfd2;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Sidebar collapses to a mobile drawer below this width */
+  --breakpoint-nav: 900px;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-ink font-body leading-relaxed antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display font-semibold text-ink tracking-tight mb-2;
+  }
+  p {
+    @apply text-ink-soft mb-4;
+  }
+  strong {
+    @apply text-ink;
+  }
+  a {
+    @apply text-accent-dark;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
